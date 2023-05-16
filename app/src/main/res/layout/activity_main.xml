@@ -4,119 +4,215 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/black">
+    android:background="#002429"
+    tools:context=".MainActivity">
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/textViewDeviceName"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#003700B3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:subtitleTextColor="@android:color/background_light"
+        app:title="Bluetooth соединение"
+        app:titleTextColor="#00BCD4" />
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/purple_700"-->
-<!--        android:minHeight="?attr/actionBarSize"-->
-<!--        android:theme="?attr/actionBarTheme"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:subtitleTextColor="@android:color/background_light"-->
-<!--        app:title="Bluetooth Соединение"-->
-<!--        app:titleTextColor="@android:color/background_light" />-->
+    <Button
+        android:id="@+id/buttonConnect"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Connect"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="94dp"-->
-<!--        android:layout_height="83dp"-->
-<!--        android:layout_marginTop="152dp"-->
-<!--        android:background="@color/black"-->
-<!--        android:contentDescription="@string/visual_bluetooth"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
-<!--        tools:ignore="VectorDrawableCompat" />-->
+    <Button
+        android:id="@+id/buttonLeft_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="204dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Left1"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDown_1" />
 
-<!--    <Button-->
-<!--        android:id="@+id/buttonConnect"-->
-<!--        style="@style/Widget.AppCompat.Button.Borderless"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/Connect"-->
-<!--        android:textColor="@android:color/background_light"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/toolbar"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/toolbar"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/toolbar" />-->
+    <Button
+        android:id="@+id/buttonDown_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="204dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Down1"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <Button-->
-<!--        android:id="@+id/buttonToggle"-->
-<!--        style="@style/Widget.AppCompat.Button.Colored"-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/turn_on"-->
-<!--        android:textSize="24sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.483"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.6" />-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="118dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginEnd="252dp"
+        android:text="Выбор светодиода"
+        android:textAlignment="center"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <ProgressBar-->
-<!--        android:id="@+id/progressBar"-->
-<!--        style="?android:attr/progressBarStyle"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.431" />-->
+    <Button
+        android:id="@+id/buttonLeft_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Left2"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDown_2" />
 
-<!--    <Button-->
-<!--        android:id="@+id/Measure_the_output_signal_level"-->
-<!--        style="@style/Widget.AppCompat.Button.Colored"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/AudioStream"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.542"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/buttonToggle"-->
-<!--        app:layout_constraintVertical_bias="0.096" />-->
+    <Button
+        android:id="@+id/buttonRight_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="12dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Right1"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLeft_1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUp_1" />
 
-<!--    <Button-->
-<!--        android:id="@+id/buttonpotent"-->
-<!--        style="@style/Widget.AppCompat.Button.Colored"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/Checkpotent"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/Measure_the_output_signal_level"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/imageView"-->
-<!--        app:layout_constraintVertical_bias="0.412" />-->
+    <Button
+        android:id="@+id/buttonDown_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="4dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Down2"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/ModeWorking"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/ModeWorkingState"-->
-<!--        android:textColor="@color/white"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.476"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/buttonToggle"-->
-<!--        app:layout_constraintVertical_bias="0.367" />-->
+    <Button
+        android:id="@+id/buttonUp_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Up2"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDown_2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="163dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="428dp"
+        android:layout_marginEnd="16dp"
+        android:text="Выбор направления движения"
+        android:textAlignment="center"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonRight_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Right2"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLeft_2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUp_2" />
+
+    <Button
+        android:id="@+id/buttonUp_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="12dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Up1"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDown_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.181" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="94dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="52dp"
+        android:background="#002429"
+        android:contentDescription="@string/visual_bluetooth"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/ModeWorking"
+        android:layout_width="407dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="164dp"
+        android:text="@string/ModeWorkingState"
+        android:textAlignment="center"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.367" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         // Проверка и автоматическая авторизация, если данные пользователя сохранены
 
         if (!savedUsername.equals("") && !savedPassword.equals("")) {
-//            login(savedUsername, savedPassword);
+            login(savedUsername, savedPassword);
         }
 
         // Если введенные логин ("makarik") и пароль ("10023") будут введены правильно,
@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    public void login(String savedUsername, String savedPassword) {
-//        Intent intent = new Intent(this, MainScreen.class);
-//        startActivity(intent);
-//        finish();
-//    }
+    public void login(String savedUsername, String savedPassword) {
+        Intent intent = new Intent(this, MainScreen.class);
+        startActivity(intent);
+        finish();
+    }
 }

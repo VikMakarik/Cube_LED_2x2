@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="33"
+        tools:ignore="GradleOverrides" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CubeLED2x2"
         tools:targetApi="31">
+        <activity android:name=".MainScreen" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

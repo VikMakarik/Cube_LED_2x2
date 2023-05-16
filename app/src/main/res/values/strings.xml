@@ -5,13 +5,16 @@
     <string name="login_text">Введите логин</string>
     <string name="password_text">Введите пароль</string>
     <string name="enter">Войти</string>
-    <string name="name_login_and_user">Авторизация</string>
-    <string name="user">Логин</string>
-    <string name="user_login">Введите логин</string>
-    <string name="user_password">Пароль</string>
-    <string name="user_password1">Введите пароль</string>
-    <string name="bt_allow">Войти</string>
-    <string name="enter1">Войти</string>
     <string name="enter2">Авторизация</string>
-    <string name="enter3">Войти</string>
+    <string name="Connect">Подключиться</string>
+    <string name="Up1">Вверх</string>
+    <string name="Down1">Вниз</string>
+    <string name="Right1">Вправо</string>
+    <string name="Left1">Влево</string>
+    <string name="Right2">Вправо</string>
+    <string name="Down2">Вниз</string>
+    <string name="Up2">Вверх</string>
+    <string name="Left2">Влево</string>
+    <string name="visual_bluetooth">visual</string>
+    <string name="ModeWorkingState">Направление движения светодиодов</string>
 </resources>
