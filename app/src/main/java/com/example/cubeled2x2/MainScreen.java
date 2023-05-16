@@ -38,9 +38,9 @@ public class MainScreen extends AppCompatActivity {
     private int btnpotent = 0;
     public static Handler handler;
     public static BluetoothSocket mmSocket;
-   // public static ConnectedThread connectedThread;
+    public static ConnectedThread connectedThread;
     @SuppressLint("StaticFieldLeak")
-    //public static CreateConnectThread createConnectThread;
+    public static CreateConnectThread createConnectThread;
 
     private final static int CONNECTING_STATUS = 1; // используется в обработчике Bluetooth для определения статуса сообщения
 
@@ -98,8 +98,8 @@ public class MainScreen extends AppCompatActivity {
             /*
             Когда будет найдено "имя устройства" строчки ниже вызывают новый поток для создания соединения Bluetooth с выбранным устройством
              */
-//            createConnectThread = new CreateConnectThread(bluetoothAdapter, deviceAddress, getApplicationContext());
-//            createConnectThread.start();
+            createConnectThread = new CreateConnectThread(bluetoothAdapter, deviceAddress, getApplicationContext());
+            createConnectThread.start();
         }
 
         /*
@@ -130,13 +130,13 @@ public class MainScreen extends AppCompatActivity {
 
         // Выбор устройства
 
-        buttonConnect.setOnClickListener(view -> {
-
-            // Помешаем Адаптер в список
-
+//        buttonConnect.setOnClickListener(view -> {
+//
+//            // Помешаем Адаптер в список
+//
 //            Intent intent = new Intent(MainScreen.this, SelectDeviceActivity.class);
 //            startActivity(intent);
-        });
+//        });
 
          // Управление режимами работы ленты
 
@@ -182,190 +182,190 @@ public class MainScreen extends AppCompatActivity {
     }
 
 
-//    /* ============================ Поток для создания Bluetooth соединения =================================== */
-//    public static class CreateConnectThread extends Thread {
-//        private final Context context;
-//
-//        public CreateConnectThread(BluetoothAdapter bluetoothAdapter, String address, Context context) {
-//
-//            /* Создание временного объекта сокета */
-//
-//            this.context = context;
-//            BluetoothDevice bluetoothDevice = bluetoothAdapter.getRemoteDevice(address);
-//            BluetoothSocket tmp = null;
-//            if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-//                // TODO: Consider calling
-//                //    ActivityCompat#requestPermissions
-//                // here to request the missing permissions, and then overriding
-//                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                //                 simplify int[] grantResults)
-//                // to handle the case where the user grants the permission. See the documentation
-//                // for ActivityCompat#requestPermissions for more details.
-//                return;
-//            }
-//            UUID uuid = null;
-//            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
-//                uuid = bluetoothDevice.getUuids()[0].getUuid();
-//            }
-//
-//            try {
-//                /*
-//                Пробуем получить BluetoothSocket для подключения к данному устройству (BluetoothDevice).
-//                В зависимости от различных моделей девайсов и версий андроид, методы могут различаться,
-//                можно попробовать что-то из этого, если стандартные методы не работают (документация гугла):
-//
-//                tmp = device.createRfcommSocketToServiceRecord(MY_UUID);
-//                 */
-//
-//                if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-//                    // TODO: Consider calling
-//                    //    ActivityCompat#requestPermissions
-//                    // here to request the missing permissions, and then overriding
-//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                    //                 simplify int[] grantResults)
-//                    // to handle the case where the user grants the permission. See the documentation
-//                    // for ActivityCompat#requestPermissions for more details.
-//                    return;
-//                }
-//                tmp = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(uuid);
-//
-//            } catch (IOException e) {
-//                Log.e(TAG, "Сокет создан, метод выдал ошибку", e);
-//            }
-//            mmSocket = tmp;
-//        }
-//
+    /* ============================ Поток для создания Bluetooth соединения =================================== */
+    public static class CreateConnectThread extends Thread {
+        private final Context context;
+
+        public CreateConnectThread(BluetoothAdapter bluetoothAdapter, String address, Context context) {
+
+            /* Создание временного объекта сокета */
+
+            this.context = context;
+            BluetoothDevice bluetoothDevice = bluetoothAdapter.getRemoteDevice(address);
+            BluetoothSocket tmp = null;
+            if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                 simplify int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            UUID uuid = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
+                uuid = bluetoothDevice.getUuids()[0].getUuid();
+            }
+
+            try {
+                /*
+                Пробуем получить BluetoothSocket для подключения к данному устройству (BluetoothDevice).
+                В зависимости от различных моделей девайсов и версий андроид, методы могут различаться,
+                можно попробовать что-то из этого, если стандартные методы не работают (документация гугла):
+
+                tmp = device.createRfcommSocketToServiceRecord(MY_UUID);
+                 */
+
+                if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                 simplify int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                tmp = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(uuid);
+
+            } catch (IOException e) {
+                Log.e(TAG, "Сокет создан, метод выдал ошибку", e);
+            }
+            mmSocket = tmp;
+        }
+
+        public void run() {
+
+            // Отмена обнаружения.
+
+            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+            if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            bluetoothAdapter.cancelDiscovery();
+            try {
+                /* Подключение к девайсу. Дальнейшая блокировка Сокета, Иначе выкинуть ошибку */
+
+                mmSocket.connect();
+                Log.e("Status", "Устройство подключено");
+                handler.obtainMessage(CONNECTING_STATUS, 1, -1).sendToTarget();
+            } catch (IOException connectException) {
+                // Неудачное подключение, закрывает сокет и возвращается
+                try {
+                    mmSocket.close();
+                    Log.e("Status", "Не удается подключиться к устройству");
+                    handler.obtainMessage(CONNECTING_STATUS, -1, -1).sendToTarget();
+                } catch (IOException closeException) {
+                    Log.e(TAG, "Не возможно закрыть сокет", closeException);
+                }
+                return;
+            }
+
+            /* Попытка подключения удалась. Выполнить работу, связанную с соединением в отдельном потоке. */
+            connectedThread = new ConnectedThread(mmSocket);
+            connectedThread.start();
+        }
+
+        // Окончательное закрытие сокета и дальнейшая работа с подключенным девайсом
+
+        public void cancel() {
+            try {
+                mmSocket.close();
+            } catch (IOException e) {
+                Log.e(TAG, "Не возможно закрыть сокет", e);
+            }
+        }
+    }
+
+    /* =============================== Поток обработки данных =========================================== */
+    public static class ConnectedThread extends Thread {
+        private final OutputStream mmOutStream;
+
+        public ConnectedThread(BluetoothSocket socket) {
+            InputStream tmpIn = null;
+            OutputStream tmpOut = null;
+
+            // Получить входные и выходные потоки, используя временные объекты, потому что
+            // потоки участников являются окончательными
+
+            try {
+                tmpIn = socket.getInputStream();
+                tmpOut = socket.getOutputStream();
+            } catch (IOException ignored) { }
+
+            InputStream mmInStream = tmpIn;
+            mmOutStream = tmpOut;
+        }
+        /* =============================== Использовалось про отладке работы с ардуино, в основной программе это не нужно, работает без этого =========================================== */
+
 //        public void run() {
-//
-//            // Отмена обнаружения.
-//
-//            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-//            if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
-//                // TODO: Consider calling
-//                //    ActivityCompat#requestPermissions
-//                // here to request the missing permissions, and then overriding
-//                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                //                                          int[] grantResults)
-//                // to handle the case where the user grants the permission. See the documentation
-//                // for ActivityCompat#requestPermissions for more details.
-//                return;
-//            }
-//            bluetoothAdapter.cancelDiscovery();
-//            try {
-//                /* Подключение к девайсу. Дальнейшая блокировка Сокета, Иначе выкинуть ошибку */
-//
-//                mmSocket.connect();
-//                Log.e("Status", "Устройство подключено");
-//                handler.obtainMessage(CONNECTING_STATUS, 1, -1).sendToTarget();
-//            } catch (IOException connectException) {
-//                // Неудачное подключение, закрывает сокет и возвращается
+//            byte[] buffer = new byte[1024];  // Буфер потока
+//            int bytes; // Вернутые байты для прочтения
+//            // Продолжайте прослушивать входной поток до тех пор, пока не возникнет исключение
+//            while (true) {
 //                try {
-//                    mmSocket.close();
-//                    Log.e("Status", "Не удается подключиться к устройству");
-//                    handler.obtainMessage(CONNECTING_STATUS, -1, -1).sendToTarget();
-//                } catch (IOException closeException) {
-//                    Log.e(TAG, "Не возможно закрыть сокет", closeException);
-//                }
-//                return;
-//            }
-//
-//            /* Попытка подключения удалась. Выполнить работу, связанную с соединением в отдельном потоке. */
-//            connectedThread = new ConnectedThread(mmSocket);
-//            connectedThread.start();
-//        }
-//
-//        // Окончательное закрытие сокета и дальнейшая работа с подключенным девайсом
-//
-//        public void cancel() {
-//            try {
-//                mmSocket.close();
-//            } catch (IOException e) {
-//                Log.e(TAG, "Не возможно закрыть сокет", e);
-//            }
-//        }
-//    }
-//
-//    /* =============================== Поток обработки данных =========================================== */
-//    public static class ConnectedThread extends Thread {
-//        private final OutputStream mmOutStream;
-//
-//        public ConnectedThread(BluetoothSocket socket) {
-//            InputStream tmpIn = null;
-//            OutputStream tmpOut = null;
-//
-//            // Получить входные и выходные потоки, используя временные объекты, потому что
-//            // потоки участников являются окончательными
-//
-//            try {
-//                tmpIn = socket.getInputStream();
-//                tmpOut = socket.getOutputStream();
-//            } catch (IOException ignored) { }
-//
-//            InputStream mmInStream = tmpIn;
-//            mmOutStream = tmpOut;
-//        }
-//        /* =============================== Использовалось про отладке работы с ардуино, в основной программе это не нужно, работает без этого =========================================== */
-//
-////        public void run() {
-////            byte[] buffer = new byte[1024];  // Буфер потока
-////            int bytes; // Вернутые байты для прочтения
-////            // Продолжайте прослушивать входной поток до тех пор, пока не возникнет исключение
-////            while (true) {
-////                try {
-////                    /*
-////                    Считывайте из входного потока из Arduino до тех пор, пока не будет достигнут символ завершения.
-////                    Затем отправьте целое строковое сообщение обработчику.
-////                     */
-////                    bytes = mmInStream.read(buffer);
-////                    buffer[bytes] = (byte) mmInStream.read();
-////                    String readMessage;
-////                    if (buffer[bytes] == '\n'){
-////                        readMessage = new String(buffer,0,bytes);
-////                        Log.e("Сообщение от Arduino",readMessage);
-////                        handler.obtainMessage(MESSAGE_READ,readMessage).sendToTarget();
-////                        bytes = 0;
-////                    } else {
-////                        bytes += 1;
-////                    }
-////                } catch (IOException e) {
-////                    e.printStackTrace();
-////                    break;
-////                }
-////            }
-////        }
-//
-//        /* Отправка данных для работы с подключенным устройством*/
-//        public void write(String input) {
-//            if (input != null) { //условие на пустоту конвертации байтов
-//                byte[] bytes = input.getBytes(); //конвертация массива
-//                try {
-//                    mmOutStream.write(bytes);
+//                    /*
+//                    Считывайте из входного потока из Arduino до тех пор, пока не будет достигнут символ завершения.
+//                    Затем отправьте целое строковое сообщение обработчику.
+//                     */
+//                    bytes = mmInStream.read(buffer);
+//                    buffer[bytes] = (byte) mmInStream.read();
+//                    String readMessage;
+//                    if (buffer[bytes] == '\n'){
+//                        readMessage = new String(buffer,0,bytes);
+//                        Log.e("Сообщение от Arduino",readMessage);
+//                        handler.obtainMessage(MESSAGE_READ,readMessage).sendToTarget();
+//                        bytes = 0;
+//                    } else {
+//                        bytes += 1;
+//                    }
 //                } catch (IOException e) {
-//                    Log.e("Ошибка отправки","Невозможно отправить сообщение",e);
+//                    e.printStackTrace();
+//                    break;
 //                }
 //            }
-//
 //        }
-//
-//        /* Завершение соединения */
-//        public void cancel() {
-//            try {
-//                mmSocket.close();
-//            } catch (IOException ignored) { }
+
+        /* Отправка данных для работы с подключенным устройством*/
+        public void write(String input) {
+            if (input != null) { //условие на пустоту конвертации байтов
+                byte[] bytes = input.getBytes(); //конвертация массива
+                try {
+                    mmOutStream.write(bytes);
+                } catch (IOException e) {
+                    Log.e("Ошибка отправки","Невозможно отправить сообщение",e);
+                }
+            }
+
+        }
+
+        /* Завершение соединения */
+        public void cancel() {
+            try {
+                mmSocket.close();
+            } catch (IOException ignored) { }
+        }
+    }
+
+    /* =============================== Использовалось про отладке работы с ардуино, в основной программе это не нужно, работает без этого =========================================== */
+//    /* ============================ Прерывание соединения ====================== */
+//    @Override
+//    public void onBackPressed() {
+//        // Прервать соединение и закрыть приложение
+//        if (createConnectThread != null){
+//            createConnectThread.cancel();
 //        }
+//        Intent a = new Intent(Intent.ACTION_MAIN);
+//        a.addCategory(Intent.CATEGORY_HOME);
+//        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(a);
 //    }
-//
-//    /* =============================== Использовалось про отладке работы с ардуино, в основной программе это не нужно, работает без этого =========================================== */
-////    /* ============================ Прерывание соединения ====================== */
-////    @Override
-////    public void onBackPressed() {
-////        // Прервать соединение и закрыть приложение
-////        if (createConnectThread != null){
-////            createConnectThread.cancel();
-////        }
-////        Intent a = new Intent(Intent.ACTION_MAIN);
-////        a.addCategory(Intent.CATEGORY_HOME);
-////        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-////        startActivity(a);
-////    }
 }

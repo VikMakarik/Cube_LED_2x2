@@ -29,31 +29,20 @@
         android:text="@string/Connect"
         android:textAllCaps="false"
         android:textColor="#00BCD4"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
-
-    <Button
-        android:id="@+id/buttonLeft_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="204dp"
-        android:background="#00FFFFFF"
-        android:text="@string/Left1"
-        android:textAllCaps="false"
-        android:textColor="#00BCD4"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonDown_1" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonDown_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="204dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="212dp"
         android:background="#00FFFFFF"
         android:text="@string/Down1"
         android:textAllCaps="false"
@@ -63,12 +52,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="118dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="440dp"
-        android:layout_marginEnd="252dp"
-        android:text="Выбор светодиода"
+        android:id="@+id/textView2"
+        android:layout_width="163dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="24dp"
+        android:text="Выбор направления движения"
         android:textAlignment="center"
         android:textColor="#00BCD4"
         android:textSize="20sp"
@@ -76,11 +65,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/buttonUp_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="4dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Up1"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDown_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/buttonLeft_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
         android:background="#00FFFFFF"
         android:text="@string/Left2"
         android:textAllCaps="false"
@@ -93,63 +97,23 @@
         android:id="@+id/buttonRight_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="4dp"
         android:background="#00FFFFFF"
         android:text="@string/Right1"
         android:textAllCaps="false"
         android:textColor="#00BCD4"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/buttonLeft_1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonUp_1" />
-
-    <Button
-        android:id="@+id/buttonDown_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="4dp"
-        android:background="#00FFFFFF"
-        android:text="@string/Down2"
-        android:textAllCaps="false"
-        android:textColor="#00BCD4"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonUp_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="8dp"
-        android:background="#00FFFFFF"
-        android:text="@string/Up2"
-        android:textAllCaps="false"
-        android:textColor="#00BCD4"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonDown_2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="163dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="428dp"
-        android:layout_marginEnd="16dp"
-        android:text="Выбор направления движения"
-        android:textAlignment="center"
-        android:textColor="#00BCD4"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonRight_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="4dp"
         android:background="#00FFFFFF"
         android:text="@string/Right2"
         android:textAllCaps="false"
@@ -159,17 +123,58 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonUp_2" />
 
     <Button
-        android:id="@+id/buttonUp_1"
+        android:id="@+id/buttonUp_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="4dp"
         android:background="#00FFFFFF"
-        android:text="@string/Up1"
+        android:text="@string/Up2"
         android:textAllCaps="false"
         android:textColor="#00BCD4"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonDown_1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDown_2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDown_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="12dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Down2"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonLeft_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="212dp"
+        android:background="#00FFFFFF"
+        android:text="@string/Left1"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDown_1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="118dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="332dp"
+        android:text="Выбор светодиода"
+        android:textAlignment="center"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
@@ -182,37 +187,35 @@
         app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="94dp"
         android:layout_height="83dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="8dp"
         android:background="#002429"
         android:contentDescription="@string/visual_bluetooth"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:ignore="VectorDrawableCompat" />
 
     <TextView
         android:id="@+id/ModeWorking"
-        android:layout_width="407dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="164dp"
+        android:layout_width="400dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="440dp"
         android:text="@string/ModeWorkingState"
         android:textAlignment="center"
         android:textColor="#00BCD4"
         android:textSize="20sp"
         android:typeface="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.367" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
