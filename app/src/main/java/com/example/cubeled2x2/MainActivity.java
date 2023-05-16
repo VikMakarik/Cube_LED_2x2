@@ -3,6 +3,7 @@ package com.example.cubeled2x2;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
@@ -47,7 +48,15 @@ public class MainActivity extends AppCompatActivity {
             if (enteredUsername.equals("makarik") && enteredPassword.equals("10023")) {
                 preferences.edit().putString("username", enteredUsername).apply();
                 preferences.edit().putString("password", enteredPassword).apply();
-                Toast.makeText(this, "Вход выполнен успешно", Toast.LENGTH_SHORT).show();
+                final Handler handler = new Handler();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                    handler.postDelayed(() -> {
+                        Toast.makeText(this, "Вход выполнен успешно", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(this, MainScreen.class);
+                        startActivity(intent);
+                        finish();
+                    }, 500);
+                }
             }
 
             else {
