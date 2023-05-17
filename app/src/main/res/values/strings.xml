@@ -17,4 +17,5 @@
     <string name="Left2">Влево</string>
     <string name="visual_bluetooth">visual</string>
     <string name="ModeWorkingState">Направление движения светодиодов</string>
+    <string name="Connect_Device_List">Имя устройства</string>
 </resources>

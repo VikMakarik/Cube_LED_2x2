@@ -130,13 +130,13 @@ public class MainScreen extends AppCompatActivity {
 
         // Выбор устройства
 
-//        buttonConnect.setOnClickListener(view -> {
-//
-//            // Помешаем Адаптер в список
-//
-//            Intent intent = new Intent(MainScreen.this, SelectDeviceActivity.class);
-//            startActivity(intent);
-//        });
+        buttonConnect.setOnClickListener(view -> {
+
+            // Помешаем Адаптер в список
+
+            Intent intent = new Intent(MainScreen.this, DeviceActivity.class);
+            startActivity(intent);
+        });
 
          // Управление режимами работы ленты
 

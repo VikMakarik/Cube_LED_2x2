@@ -22,6 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CubeLED2x2"
         tools:targetApi="31">
+        <activity android:name=".DeviceActivity" />
         <activity android:name=".MainScreen" />
         <activity
             android:name=".MainActivity"
